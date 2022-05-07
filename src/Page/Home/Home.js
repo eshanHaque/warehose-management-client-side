@@ -1,9 +1,9 @@
 import React from 'react';
-
+import img from '../../Images/img1.jpg';
 const Home = () => {
     return (
         <div>
-            <h1>This is hooooome</h1>
+            <img className='w-100' src={img} alt="" />
         </div>
     );
 };
