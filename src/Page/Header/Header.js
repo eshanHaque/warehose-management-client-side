@@ -18,7 +18,7 @@ const Header = () => {
                         <Nav.Link href="/inventory">Inventory</Nav.Link>
                         {   
                             user?
-                                <button onClick={handleLogOut}>Log Out</button>
+                                <button onClick={handleLogOut} className='btn btn-primary'>Log Out</button>
                             :
                             <Nav.Link href="/login">
                                 Log In
