@@ -4,6 +4,7 @@ import Header from './Page/Header/Header';
 import Home from './Page/Home/Home';
 import Inventories from './Page/Inventories/Inventories';
 import Login from './Page/Log/LogIn/Login';
+import Register from './Page/Log/Register/Register';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/inventory" element={<Inventories></Inventories>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/register" element={<Register></Register>}></Route>
       </Routes>
     </div>
   );
