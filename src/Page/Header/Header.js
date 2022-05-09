@@ -23,6 +23,7 @@ const Header = () => {
                         <Nav.Link href="/home">Home</Nav.Link>
                         <Nav.Link href="/inventory">Inventory</Nav.Link>
                         <button onClick={navigateInventoryItem} className='btn btn-primary'>Manage Inventory</button>
+                        <Nav.Link href="/blogs">Blogs</Nav.Link>
                         {   
                             user?
                                 

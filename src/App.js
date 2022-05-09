@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Blogs from './Page/Blogs/Blogs';
 import Header from './Page/Header/Header';
 import Home from './Page/Home/Home';
 import Inventories from './Page/Inventories/Inventories';
@@ -24,6 +25,7 @@ function App() {
         <Route path="/manage/:id" element={<ManageInventory></ManageInventory>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
+        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
       </Routes>
     </div>
   );
