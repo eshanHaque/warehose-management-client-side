@@ -5,7 +5,7 @@ const Inventories = () => {
     const [inventories, setInventories] = useState([]);
 
     useEffect(() => {
-        fetch('inventory.json')
+        fetch('http://localhost:5000/Inventory')
             .then(res => res.json())
             .then(data => setInventories(data));
     }, [])
@@ -18,7 +18,7 @@ const Inventories = () => {
                 <div className="row justify-content-around gap-2">
                     {
                         inventories.map(inventory => <Inventory
-                            key={inventory.id}
+                            key={inventory._id}
                             inventory={inventory}
                         >
                         </Inventory>)
