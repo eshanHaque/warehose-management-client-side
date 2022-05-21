@@ -10,9 +10,3 @@ https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-eshanHaqu
 <!---------------------------------
 -------------Deploy--------------->
 
-<!-- client side  deploy-->
-https://warehouse-management-38c9c.firebaseapp.com/
-
-
-<!-- Server side deploy -->
-https://calm-eyrie-94249.herokuapp.com/

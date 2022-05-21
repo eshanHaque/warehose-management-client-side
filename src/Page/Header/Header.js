@@ -12,8 +12,8 @@ const Header = () => {
     }
     const navigate = useNavigate();
 
-    const navigateInventoryItem = id =>{
-        navigate(`/manage/${id}`); 
+    const navigateInventoryItem = ()    =>{
+        navigate(`/manage`); 
     }
     return (
         <div>

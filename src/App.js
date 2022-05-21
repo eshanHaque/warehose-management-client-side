@@ -18,11 +18,12 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/inventory" element={
-        
+        <RequireAuth>
           <Inventories></Inventories>
-        
+        </RequireAuth> 
         }></Route>
         <Route path="/manage/:id" element={<ManageInventory></ManageInventory>}></Route>
+        <Route path="/manage" element={<ManageInventory></ManageInventory>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
