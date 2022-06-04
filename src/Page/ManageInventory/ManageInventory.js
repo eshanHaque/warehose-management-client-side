@@ -1,28 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 const ManageInventory = () => {
-    const {id} = useParams();
-    const [inventory, setInventory] = useState({});
-    useEffect(() => {
-        console.log(id);
-    if(id){
-        const url = `https://calm-eyrie-94249.herokuapp.com/Inventory/${id}`;
-        
-        fetch(url)
-        .then(res => res.json())
-        .then(data => setInventory(data));
-    }
-    }, [])
-    
+     
     return (
-        <div className='mt-5 card col-lg-6 mngInventory-card'>
-            <h2>{inventory.name}</h2>
-            <img className="img-fluid mt-3" src={inventory.img} alt=""></img>
-            <p className='text-danger text-center'>{inventory.price}</p>
-            <p className='text-center'>Quantity {inventory.qty}</p>
-            <button >send</button>
+        <div className="drawer drawer-mobile">
+            <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+            <div className="drawer-content">
+                <Outlet></Outlet>
+
+
+            </div>
+            <div className="drawer-side">
+                <label for="my-drawer-2" className="drawer-overlay"></label>
+                <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+                    {/* <!-- Sidebar content here --> */}
+                    <li><Link to='/manage'>My Order</Link></li>
+                    <li><Link to='/manage/addItem'>Add a Item</Link></li>
+                    <li><Link to='/manage/deleteItem'>Delete Item</Link></li>
+                </ul>
+
+            </div>
         </div>
     );
 };

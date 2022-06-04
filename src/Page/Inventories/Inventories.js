@@ -1,39 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import Inventory from '../Inventory/Inventory';
-import Loading from '../Loading/Loading'
 const Inventories = () => {
     const [inventories, setInventories] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isorder, setIsOrder] = useState(null);
 
     useEffect(() => {
-        setIsLoading(true);
-        fetch('https://calm-eyrie-94249.herokuapp.com/Inventory')
+        fetch('http://localhost:5000/Inventory')
             .then(res => res.json())
             .then(data => setInventories(data));
-        setIsLoading(false)
     }, [])
 
 
 
-    const renderItem = (
+    return (
         <div>
-            <h2>Inventories</h2>
-            <div>
-                <div className="row justify-content-around gap-2">
+            
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  justify-items-center">
                     {
                         inventories.map(inventory => <Inventory
                             key={inventory._id}
                             inventory={inventory}
+                            isorder={isorder}
+                            setIsOrder={setIsOrder}
                         >
                         </Inventory>)
                     }
                 </div>
-            </div>
-        </div>
-    );
-    return (
-        <div className="App">
-            {isLoading ? <Loading></Loading>: renderItem}
             
         </div>
     );

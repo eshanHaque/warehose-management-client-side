@@ -1,21 +1,53 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 import '../Inventory/Inventory.css'
 const Inventory = ({ inventory }) => {
-    const {_id, name, img, desc, price, qty, supplyname} = inventory;
-    
-    
-    return (
-        <div className='mt-5 col-sm-12 col-md-6 col-lg-3 inventory-card'>
-                <img className="img-fluid mt-3" src={img} alt=""></img>
-                <h2 className='mt-2'>{name}</h2>
-                <p className='text-danger'>{price} tk</p>
-                <p className='description'>{desc}</p>
-                <p className='qty'>Quantity: {qty}</p>
-                <p className='spl-Name'>Supplier Name: {supplyname}</p>
-                <Link to={`/manage/${inventory._id}`}><button className='btn btn-dark'>Choose</button></Link>
-        </div>
-    );
-};
+    const { _id, name, img, desc, price, qty, supplyname } = inventory;
+    const [user] = useAuthState(auth);
+    const handlePurchase = event => {
+        event.preventDefault();
+        const order = {
+            orderID: _id,
+            productName: name,
+            productImg: img,
+            productPrice: price,
+            userEmail: user?.email,
+            userName: user?.displayName
+        }
+        fetch('http://localhost:5000/order', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            if(data){
+                toast(`You orderd, ${name}`)
+            }
+        })
+    }
 
-export default Inventory;
+        return (
+            <div>
+                <form onSubmit={handlePurchase}>
+                    <div style={{ height: '600px' }} className="card w-96 bg-base-100 shadow-xl mb-10">
+                        <figure><img src={img} alt="Shoes" /></figure>
+                        <div className="card-body">
+                            <h2 className="card-title">{name}</h2>
+                            <p>{desc}</p>
+                            <p>Price: {price}</p>
+                            <p>{qty} pieces available</p>
+                            <p>Supplier {supplyname}</p>
+                            <input type="submit" value="Place Order" className="btn btn-primary" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        );
+    };
+
+    export default Inventory;
