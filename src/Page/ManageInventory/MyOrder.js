@@ -11,7 +11,7 @@ const Myorder = () => {
     const navigate = useNavigate();
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/order?userEmail=${user.email}`, {
+            fetch(`https://calm-eyrie-94249.herokuapp.com/order?userEmail=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'content-type': 'application/json'

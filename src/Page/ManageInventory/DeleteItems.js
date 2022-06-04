@@ -4,7 +4,7 @@ import Loading from '../Loading/Loading';
 import DeleteItem from './DeleteItem';
 
 const DeleteItems = () => {
-    const { data: inventories, isLoading, refetch } = useQuery('inventory', () => fetch('http://localhost:5000/Inventory', {
+    const { data: inventories, isLoading, refetch } = useQuery('inventory', () => fetch('https://calm-eyrie-94249.herokuapp.com/Inventory', {
         headers: {
             'content-type': 'application/json',
         }

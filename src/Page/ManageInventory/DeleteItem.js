@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const DeleteItem = ({ inventory, index, refetch }) => {
     const { _id, name, img, desc, price, qty, supplyname } = inventory;
     const handleDelete = name => {
-        fetch(`http://localhost:5000/Inventory/${name}`, {
+        fetch(`https://calm-eyrie-94249.herokuapp.com/Inventory/${name}`, {
             method: 'DELETE',
         })
         .then(res=>res.json())

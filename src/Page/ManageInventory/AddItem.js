@@ -8,7 +8,7 @@ const AddItem = () => {
 
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
-    const { data: inventories, isLoading } = useQuery('inventories', () => fetch('http://localhost:5000/Inventory').then(res => res.json()));
+    const { data: inventories, isLoading } = useQuery('inventories', () => fetch('https://calm-eyrie-94249.herokuapp.com/Inventory').then(res => res.json()));
     const imgStorageKey = '479baa967ba9e976fa75e8de4ef96d5c';
 
 
@@ -33,7 +33,7 @@ const AddItem = () => {
                         supplyname: data.supplyname,
                         img: img
                     }
-                    fetch('http://localhost:5000/Inventory', {
+                    fetch('https://calm-eyrie-94249.herokuapp.com/Inventory', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

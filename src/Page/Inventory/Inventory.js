@@ -16,7 +16,7 @@ const Inventory = ({ inventory }) => {
             userEmail: user?.email,
             userName: user?.displayName
         }
-        fetch('http://localhost:5000/order', {
+        fetch('https://calm-eyrie-94249.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
