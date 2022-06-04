@@ -110,7 +110,7 @@ const Login = () => {
                         {/* Submit button */}
                         <input className='btn w-full max-w-xs' value="LOGIN" type="submit" />
                     </form>
-                    <p>New to Doctors Portal <Link className='text-sky-300' to='/register'>Create New Account</Link></p>
+                    <p>Not a Member? <Link className='text-sky-300' to='/register'>Create New Account</Link></p>
                     <div className='divider'>or</div>
                     <button
                         onClick={() => signInWithGoogle()}
